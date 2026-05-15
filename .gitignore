@@ -9,6 +9,7 @@ frontend/dist
 # IDEs
 .vscode/
 .idea/
+.vs/
 
 # Logs
 *.log
