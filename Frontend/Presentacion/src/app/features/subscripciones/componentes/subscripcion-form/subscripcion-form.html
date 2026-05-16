@@ -1,0 +1,107 @@
+@if(isOpen()){
+    <div class="subscripcion-form-backdrop" (click)="onClose()">
+        <section class="subscripcion-form-container" role="dialog" aria-modal="true" (click)="$event.stopPropagation()">
+            <header class="form-header">
+                <div>
+                    <span class="form-eyebrow">Subscripcion</span>
+                    <h2>{{ titulo }}</h2>
+                </div>
+                <button class="btn-close" type="button" aria-label="Cerrar" (click)="onClose()">
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+            </header>
+
+            <form class="subscripcion-form" #subscripcionForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="TipoSubscripcion">Tipo de subscripcion</label>
+                        <select
+                            id="TipoSubscripcion"
+                            name="TipoSubscripcion"
+                            [(ngModel)]="formData.TipoSubscripcion"
+                            [disabled]="soloLectura"
+                            required>
+                            <option value="" disabled>Seleccione un tipo</option>
+                            @for (tipoSubscripcion of tiposSubcripciones; track tipoSubscripcion) {
+                                <option [value]="tipoSubscripcion">{{ tipoSubscripcion }}</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Usuario">Usuario</label>
+                        <input
+                            id="Usuario"
+                            name="Usuario"
+                            type="text"
+                            placeholder="Nombre del usuario"
+                            [(ngModel)]="formData.Usuario"
+                            [readonly]="soloLectura"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PrecioBase">Precio base</label>
+                        <input
+                            id="PrecioBase"
+                            name="PrecioBase"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            placeholder="0.00"
+                            [(ngModel)]="formData.PrecioBase"
+                            [readonly]="soloLectura"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PrecioTotal">Precio total</label>
+                        <input
+                            id="PrecioTotal"
+                            name="PrecioTotal"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            placeholder="0.00"
+                            [(ngModel)]="formData.PrecioTotal"
+                            [readonly]="soloLectura"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="FechaInicio">Fecha de inicio</label>
+                        <input
+                            id="FechaInicio"
+                            name="FechaInicio"
+                            type="date"
+                            [(ngModel)]="formData.FechaInicio"
+                            [readonly]="soloLectura"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="FechaFin">Fecha de fin</label>
+                        <input
+                            id="FechaFin"
+                            name="FechaFin"
+                            type="date"
+                            [(ngModel)]="formData.FechaFin"
+                            [readonly]="soloLectura"
+                            required>
+                    </div>
+                </div>
+
+                <footer class="form-footer">
+                    <button class="btn-secondary" type="button" (click)="onClose()">
+                        {{ soloLectura ? 'Cerrar' : 'Cancelar' }}
+                    </button>
+                    @if(!soloLectura){
+                        <button class="btn-primary" type="submit" [disabled]="subscripcionForm.invalid">
+                            Guardar
+                        </button>
+                    }
+                </footer>
+            </form>
+        </section>
+    </div>
+}

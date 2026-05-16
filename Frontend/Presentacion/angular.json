@@ -25,7 +25,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+                "src/styles.css"
             ]
           },
           "configurations": {
@@ -88,5 +89,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8ce46e8e-018d-4a17-bb00-7c928d85d6ba"
   }
 }

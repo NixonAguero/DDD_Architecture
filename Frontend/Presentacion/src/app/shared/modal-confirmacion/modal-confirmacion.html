@@ -1,0 +1,36 @@
+@if(isOpen()){
+    <div class="modal-backdrop" (click)="onClose()">
+
+        <div class="modal-container" role="dialog" aria-modal="true" (click)="$event.stopPropagation()">
+
+            <header class="modal-header">
+                <div class="modal-heading">
+                    <span class="modal-icon" aria-hidden="true">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </span>
+                    <div>
+                        <span class="modal-eyebrow">Accion irreversible</span>
+                        <h2 class="modal-title">Confirmar eliminacion</h2>
+                    </div>
+                </div>
+                <button class="btn-close" type="button" aria-label="Cerrar" (click)="onClose()">
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+            </header>
+
+            <section class="modal-body">
+                <p>
+                    Desea eliminar la subscripcion de
+                    <strong>{{subscripcionEliminar()?.Usuario}}</strong>?
+                </p>
+            </section>
+
+            <footer class="modal-footer">
+                <button class="btn-secondary" type="button" (click)="onClose()">Cancelar</button>
+                <button class="btn-primary" type="button" (click)="onConfirmar()">Eliminar</button>
+            </footer>
+
+        </div>
+
+    </div>
+}

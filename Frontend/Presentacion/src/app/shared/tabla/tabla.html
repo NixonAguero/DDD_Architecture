@@ -1,0 +1,34 @@
+<main class="tabla-pagina">
+    <section class="tabla-contenedor" aria-label="Tabla de datos">
+        <table class="tabla-datos">
+            <thead>
+                <tr>
+                    @for(columna of columnas; track columna.key){
+                        <th scope="col">{{columna.label}}</th>
+                    }
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of datos(); track $index){
+                    <tr>
+                        @for(columna of columnas; track columna.key){
+                            <td>
+                                @if(esFecha(item[columna.key])){
+                                    {{ item[columna.key] | date:'dd/MM/yyyy' }}
+                                } @else {
+                                    {{ item[columna.key] }}
+                                }
+                            </td>
+                        }
+                        <td class="tabla-acciones">
+                            <i class="bi bi-eye" (click)="onVer(item)"></i>
+                            <i class="bi bi-pencil-square" (click)="onEditar(item)"></i>
+                            <i class="bi bi-trash" (click)="onEliminar(item)"></i>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

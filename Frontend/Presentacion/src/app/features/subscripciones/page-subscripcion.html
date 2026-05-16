@@ -1,0 +1,34 @@
+<div class="subscripcion-container">
+    <header class="subscripcion-header">
+        <div class="subscripcion-heading">
+            <span class="subscripcion-eyebrow">Administracion</span>
+            <h1>Subscripciones</h1>
+        </div>
+        <button class="btn-crear" type="button" (click)="onCrear()">
+            <i class="bi bi-plus-lg" aria-hidden="true"></i>
+            Nueva subscripcion
+        </button>
+    </header>
+
+    <section class="subscripcion-panel">
+        <app-subscripcion-tabla 
+            [subscripciones]="subscripciones" 
+            (editarSubscripcion)="onEditar($event)"
+            (eliminarSubscripcion)="onEliminar($event)"
+            (verSubscripcion)="onVer($event)"
+        />
+        <app-modal-confirmacion 
+            [(isOpen)]="modalEliminar"
+            [(subscripcionEliminar)]="subscripcionSeleccionada" 
+            (confirmarEliminar)="confirmarEliminacion($event)" 
+        />
+        <app-subscripcion-form 
+            [(detallesSubscripcion)]="subscripcionSeleccionada"
+            [(isOpen)]="modalVer"
+            [(isCrear)]="isCrear"
+            [(isEditar)]="isEditar"
+            [(isVer)]="isVer"
+            (guardarSubscripcion)="guardarSubscripcion($event)"
+        />
+    </section>
+</div>
