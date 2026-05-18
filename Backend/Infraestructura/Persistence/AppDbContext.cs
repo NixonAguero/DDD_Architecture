@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Domain.Entities;
-using Infrastructure.Persistence.Config;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.Persistence

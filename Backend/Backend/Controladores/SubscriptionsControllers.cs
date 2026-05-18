@@ -8,9 +8,9 @@ namespace DistributedServices.Controladores
     [Route("api/subscriptions")]
     public class SubscriptionsController : ControllerBase
     {
-        private readonly ISubscriptionService _service;
+        private readonly ISubsciptionService _service;
 
-        public SubscriptionsController(ISubscriptionService service)
+        public SubscriptionsController(ISubsciptionService service)
             => _service = service;
 
         [HttpGet]

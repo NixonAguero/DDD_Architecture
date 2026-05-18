@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Domain.Entities;
+using Domain.Interfaces;
 using Infraestructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.Repositories
 {
@@ -20,7 +23,7 @@ namespace Infraestructure.Repositories
 
         public async Task<IEnumerable<Subscription>> GetByUserEmailAsync(string email)
             => await _context.Subscriptions
-                   .Where(s => s.UserMail.Value == email.Trim().ToLowerInvariant())
+                   .Where(s => s.UserMail.value == email.Trim().ToLowerInvariant())
                    .ToListAsync();
 
         public async Task AddAsync(Subscription subscription)

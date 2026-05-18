@@ -20,7 +20,7 @@ namespace Application.DTOs
         public static SubscriptionDto From(Subscription s) => new(
             s.Id,
             s.Type,
-            s.UserMail.Value,
+            s.UserMail.value,
             s.Price,
             s.TotalPrice,
             s.Status.ToString(),

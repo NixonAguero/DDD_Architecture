@@ -8,16 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.DTOs;
 using Application.Interfaces;
-using Domain.Interfaces;
+using Domain.Entities;
 using Domain.ValueObjects;
+using Application.Exceptions;
 
 
 namespace Application.Services.Subscription
 {
     public class SubscriptionService(ISubscriptionRepository _repository) : ISubsciptionService
     {
-        public SubscriptionService(ISubscriptionRepository repository)
-     => _repository = repository;
 
         public async Task<IEnumerable<SubscriptionDto>> GetAllAsync()
         {
@@ -42,7 +41,7 @@ namespace Application.Services.Subscription
         public async Task<SubscriptionDto> CreateAsync(CreateSubscriptionDto dto)
         {
             var email = new Email(dto.UserMail);
-            var subscription = new Subscription(dto.Type, email, dto.Price);
+            var subscription = new Domain.Entities.Subscription(dto.Type, email, dto.Price);
 
             await _repository.AddAsync(subscription);
             return SubscriptionDto.From(subscription);

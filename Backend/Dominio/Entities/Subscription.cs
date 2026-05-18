@@ -4,7 +4,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using Domain.Exceptions;
 using Domain.Interfaces;
-using Domain.Services;
+using Domain.ValueObjects;
 using static Domain.Enums.SubscriptionEstatus;
 
 namespace Domain.Entities
