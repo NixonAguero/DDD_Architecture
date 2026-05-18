@@ -32,12 +32,12 @@ namespace Infraestructure.Persistence
 
             builder.OwnsOne(s => s.UserMail, email =>
             {
-                email.Property(e => e.Value)
+                email.Property(e => e.value)
                      .HasColumnName("UserMail")
                      .IsRequired()
                      .HasMaxLength(254);
 
-                email.HasIndex(e => e.Value);
+                email.HasIndex(e => e.value);
             });
         }
     }

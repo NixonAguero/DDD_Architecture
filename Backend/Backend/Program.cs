@@ -3,11 +3,14 @@ using Application.Services;
 using Application.Services.Subscription;
 using DistributedServices.Middleware;
 using Domain.Interfaces;
-
+using Infraestructure.Persistence;
+using Infraestructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AppDbContext<AppDbContext>(options =>
+
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();

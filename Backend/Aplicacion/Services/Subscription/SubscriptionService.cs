@@ -6,7 +6,6 @@ using Domain.Interfaces;
 using Domain.Entities;
 using System.Linq;
 using System.Threading.Tasks;
-using Application.DTOs;
 using Application.Interfaces;
 using Domain.Entities;
 using Domain.ValueObjects;
