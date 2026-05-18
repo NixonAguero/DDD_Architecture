@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Adaptadores\**" />
+    <Compile Remove="Servicios de Aplicacion\**" />
+    <Compile Remove="Workflows\**" />
+    <EmbeddedResource Remove="Adaptadores\**" />
+    <EmbeddedResource Remove="Servicios de Aplicacion\**" />
+    <EmbeddedResource Remove="Workflows\**" />
+    <None Remove="Adaptadores\**" />
+    <None Remove="Servicios de Aplicacion\**" />
+    <None Remove="Workflows\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Domain.csproj" />
+  </ItemGroup>
+
+</Project>

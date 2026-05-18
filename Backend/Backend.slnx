@@ -1,6 +1,9 @@
 <Solution>
-  <Project Path="Aplicacion/Aplicacion.csproj" Id="137f7e70-8934-4648-a7e9-2f389dd76602" />
-  <Project Path="Backend/Servicios Distribuidos.csproj" />
-  <Project Path="Dominio/Dominio.csproj" Id="fb3e4c76-a4d9-4310-abc6-1e3e60cfea82" />
-  <Project Path="Infraestructura/Infraestructura.csproj" Id="e4239c48-b52b-4e26-a975-e0e07cfe0c9d" />
+  <Folder Name="/Aplicacion/" />
+  <Folder Name="/Dominio/" />
+  <Folder Name="/Infraestructura/" />
+  <Project Path="Aplicacion/Application.csproj" Id="137f7e70-8934-4648-a7e9-2f389dd76602" />
+  <Project Path="Backend/DistributedServices.csproj" />
+  <Project Path="Dominio/Domain.csproj" Id="fb3e4c76-a4d9-4310-abc6-1e3e60cfea82" />
+  <Project Path="Infraestructura/Infraestructure.csproj" Id="e4239c48-b52b-4e26-a975-e0e07cfe0c9d" />
 </Solution>
